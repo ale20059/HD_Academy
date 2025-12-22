@@ -1,0 +1,95 @@
+.main-footer {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 60px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 0 5%;
+}
+
+.footer-section h3 {
+  color: #00a8ff; /* El azul de tu marca */
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: white;
+}
+
+.social-links a {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #00a8ff;
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
+
+.social-links-circle {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* O flex-start si lo quieres a la izquierda */
+    margin-top: 15px;
+}
+
+.social-links-circle a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: #333; /* Color gris oscuro del círculo */
+    color: white;
+    border-radius: 50%; /* Esto lo hace círculo */
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto Hover */
+.social-links-circle a:hover {
+    background-color: #00a8ff; /* Cambia al azul de tu marca */
+    transform: translateY(-5px); /* Se eleva un poquito */
+    box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+}

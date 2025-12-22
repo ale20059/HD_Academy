@@ -1,0 +1,139 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #00a8ff;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00a8ff;
+    transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+
+/* ... Todo tu código anterior se queda igual hasta llegar al Responsive ... */
+
+/* ESTILO DEL BOTÓN HAMBURGUESA */
+.nav-toggle {
+    display: none; /* Escondido en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 2000;
+}
+
+.nav-toggle span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Animación de la X cuando se abre */
+.nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* NUEVO RESPONSIVE */
+@media (max-width: 960px) { /* Subí a 960px porque son muchos links */
+    .nav-toggle {
+        display: flex; /* Aparece el botón */
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* Escondido a la derecha */
+        top: 0;
+        height: 100vh;
+        width: 70%; /* Ocupa el 70% del ancho */
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        right: 0; /* Se desliza hacia adentro */
+    }
+
+    .nav-links a {
+        font-size: 18px; /* Más grande para que sea fácil tocar con el dedo */
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}

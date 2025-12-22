@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* Cambiado a 100vh */
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+
+
+  background-image: url('../assets/images/image.png');
+  background-size: cover;
+  /* Esto hará que se adapte */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  /* Un poco más de aire */
+  border-radius: 15px;
+  width: 80%;
+  /* Quitamos el height: 60% para que la caja se ajuste al texto y no al revés */
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  /* Esto le da un efecto de vidrio muy pro */
+}
+
+/* ESTO ES LO NUEVO: Control total del tamaño */
+.hero-content h1 {
+  /* clamp hace que no sea ni muy chico en cel, ni exagerado en PC */
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  /* Todo en mayúsculas para más impacto */
+  letter-spacing: 5px;
+  /* Espacio entre letras */
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0.9;
+}
+
+/* Sección del contenido */
+.content-section {
+  position: relative;
+  z-index: 1;
+  background-color: #1a1a1a;
+  /* Un gris oscuro se vería pro con tu imagen */
+  color: white;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll;
+    /* En lugar de 300px, usa 60vh para que sea proporcional al cel */
+    height: 60vh;
+  }
+}
+
+/* Contenedor de las tarjetas */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+/* Tarjeta individual con efecto rudo */
+.module-card {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+}
+
+.module-card:hover {
+  transform: translateY(-10px);
+  border-color: #00a8ff; /* El azul que usamos en el nav */
+}
+
+.btn-small {
+  display: inline-block;
+  margin-top: 15px;
+  color: #00a8ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}

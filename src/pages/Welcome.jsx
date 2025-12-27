@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../css/Welcome.css';
+import guitarra from "../assets/images/guitar.jpg";
+import imagen1 from "../assets/images/image.png";
 
 
 
@@ -15,26 +17,27 @@ function Welcome() {
           <p>HD Industries</p>
         </div>
       </section>
+
+
+
       <section className="content-section">
-        <div className="module-card">
-          <div className="icon">🎵</div>
-          <h3>HD Sounds</h3>
-          <p>Explora nuestras librerias y samples y beats exclusivos</p>
-          <Link to="/sounds">Ir a HD Sounds</Link>
+
+        <div className="studio-grabacion">
+          <div className="studio-left">
+            <h2>Studio</h2>
+            <img src={guitarra} alt="" />
+          </div>
+          <p>Donde las ideas <br /> se convierten en sonido profesional.</p>
+          <Link className="btn-academy" to="/sounds">escuchar</Link>
         </div>
 
-        <div className="module-card">
-          <div className="icon">🎓</div>
-          <h3>HD Academy</h3>
-          <p>Aprende producción y mezcla con los mejores.</p>
-          <Link to="/academy" className="btn-small">Ver cursos</Link>
-        </div>
-
-        <div className="module-card">
-          <div className="icon">👕</div>
-          <h3>Tienda Oficial</h3>
-          <p>Lleva el estilo de Hijos de Dios contigo.</p>
-          <Link to="/shop" className="btn-small">Ir a la tienda</Link>
+        <div className="studio-grabacion">
+          <div className="studio-left">
+            <h2>Academy</h2>
+            <img src={imagen1} alt="" />
+          </div>
+          <p>Donde el talento <br />se entrena y el sonido evoluciona.</p>
+          <Link className="btn-academy" to="/academy">inscribirme</Link>
         </div>
 
       </section>

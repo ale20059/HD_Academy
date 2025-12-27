@@ -81,42 +81,116 @@ html,
   min-height: 100vh;
 }
 
+
+
+.studio-grabacion {
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  background: black;
+  display: flex;
+  align-items: center;
+}
+
+.studio-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+}
+
+.studio-left img {
+  width: 100%;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.studio-left h2 {
+  font-size: 45px;
+  color: white;
+  margin: 0 0 15px 20px;
+}
+
+.studio-grabacion p {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  flex: 1;
+
+}
+
+.btn-academy {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-academy:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+
 @media (max-width: 768px) {
+
   .hero-section {
     background-attachment: scroll;
-    /* En lugar de 300px, usa 60vh para que sea proporcional al cel */
-    height: 60vh;
+    height: 95vh;
   }
-}
 
-/* Contenedor de las tarjetas */
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 40px 0;
-}
+  /* Card del studio */
+  .studio-grabacion {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 25px;
+    background: #0d0d0d;
+  }
 
-/* Tarjeta individual con efecto rudo */
-.module-card {
-  background: #1e1e1e;
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #333;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  text-align: center;
-}
+  /* Columna izquierda */
+  .studio-left {
+    width: 100%;
+    align-items: center;
+  }
 
-.module-card:hover {
-  transform: translateY(-10px);
-  border-color: #00a8ff; /* El azul que usamos en el nav */
-}
+  /* H2 como etiqueta */
+  .studio-left h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: #ffffff10;
+    margin: 0 0 12px 0;
+  }
 
-.btn-small {
-  display: inline-block;
-  margin-top: 15px;
-  color: #00a8ff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
+  /* Imagen */
+  .studio-left img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+  }
+
+  /* Texto principal */
+  .studio-grabacion p {
+    font-size: 22px;
+    text-align: center;
+    padding: 18px;
+    background: #1a1a1a99;
+    border-radius: 20px;
+    line-height: 1.4;
+  }
+
+  .btn-academy {
+    width: 100%;
+    text-align: center;
+  }
+
 }

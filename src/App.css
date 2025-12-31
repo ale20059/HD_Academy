@@ -1,0 +1,13 @@
+/* Contenedor principal de toda la App */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% del alto de la ventana */
+}
+
+/* El contenido central (donde están las rutas) */
+.main-content {
+  flex: 1; /* Esto hace que el contenido se estire y empuje al footer al fondo */
+  display: flex;
+  flex-direction: column;
+}

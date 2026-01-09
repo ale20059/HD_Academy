@@ -12,7 +12,7 @@ const Footer = () => {
                         <a href="https://instagram.com/academia.hd/" target="_blank" rel="noreferrer" aria-label="Instagram">
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>
-                        <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+                        <a href="http://www.youtube.com/@hd.academy" target="_blank" rel="noreferrer" aria-label="YouTube">
                             <FontAwesomeIcon icon={faYoutube} />
                         </a>
                         <a href="https://spotify.com" target="_blank" rel="noreferrer" aria-label="Spotify">

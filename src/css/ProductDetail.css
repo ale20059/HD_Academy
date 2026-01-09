@@ -1,0 +1,114 @@
+/* Contenedor Principal Dark */
+.product-detail-container {
+    padding: 10rem 2rem 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #000000; /* Fondo negro profundo */
+    color: #ffffff;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Imagen con sombra sutil */
+.detail-image-wrapper img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid #333;
+}
+
+/* Info del Producto */
+.detail-info h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #f1f1f1;
+}
+
+.detail-info .category-tag {
+    color: #007bff; /* Azul HD */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.detail-info .description {
+    font-size: 1.1rem;
+    color: #a0a0a0; /* Gris suave para lectura */
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* Caja de Precio Estilo Dark Card */
+.detail-price-box {
+    background: #1e1e1e; /* Gris muy oscuro */
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.current-price {
+    font-size: 2.5rem;
+    color: #4bb543; /* Verde éxito */
+    font-weight: bold;
+}
+
+.old-price {
+    color: #666;
+    text-decoration: line-through;
+    font-size: 1.2rem;
+}
+
+/* Botón de Compra */
+.btn-buy-now {
+    background-color: #007bff;
+    color: white;
+    padding: 1.2rem;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-buy-now:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0; /* Pegados para que parezca una sola barra */
+    padding-top: 9rem; 
+    margin-bottom: 2rem;
+    background-color: #121212;
+}
+
+.filter-tabs button {
+    background: #1e1e1e;
+    color: #888;
+    border: 1px solid #333;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}

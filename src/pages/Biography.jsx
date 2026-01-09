@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../services/api';
+import api, {STORAGE_URL} from '../services/api';
 import '../css/Biography.css';
 
 const Biography = () => {
@@ -7,13 +7,13 @@ const Biography = () => {
     const [loading, setLoading] = useState(true);
 
     // URL para las imágenes que vienen de Laravel Storage
-    const IMAGE_BASE_URL = "http://localhost:8000/storage/foto_user/";
+    const IMAGE_BASE_URL = `${STORAGE_URL}/foto_user/`;
 
     useEffect(() => {
         const getBiography = async () => {
             try {
                 // Consumimos el endpoint /biography usando nuestra config de axios
-                const response = await api.get('/biography');
+                const response = await api.get('v1/biography');
                 setBiographies(response.data);
             } catch (error) {
                 console.error("Error al obtener la biografía:", error);

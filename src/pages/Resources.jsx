@@ -3,27 +3,28 @@ import api, { STORAGE_URL } from '../services/api';
 import { Link } from 'react-router-dom';
 import '../css/Sounds.css';
 
-const Sounds = () => {
-    const [products, setProducts] = useState([]);
+const Resources = () => {
+    const [resources, setResources] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [filter, setFilter] = useState('sequence');
+    const [filter, setFilter] = useState('preset');
 
-    // Lógica para el Audio
+    // Lógica para el Audio (Tal cual la tienes en Sounds)
     const [currentAudio, setCurrentAudio] = useState(null);
     const [playingId, setPlayingId] = useState(null);
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchResources = async () => {
             try {
-                const response = await api.get('/v1/products?free=0');
-                setProducts(response.data);
+                // Filtro para traer solo lo GRATIS
+                const response = await api.get('/v1/products?free=1');
+                setResources(response.data);
                 setLoading(false);
             } catch (error) {
-                console.error(error);
+                console.error("Error cargando recursos:", error);
                 setLoading(false);
             }
         };
-        fetchProducts();
+        fetchResources();
     }, []);
 
     const handlePlayPause = (product) => {
@@ -49,37 +50,19 @@ const Sounds = () => {
         audio.onended = () => setPlayingId(null);
     };
 
-    const filteredProducts = products.filter(p => p.category_type === filter);
+    const filteredResources = resources.filter(r => r.category_type === filter);
 
-    if (loading) return <p className="loading">Cargando sonidos de HD...</p>;
+    if (loading) return <p className="loading">Cargando recursos gratuitos de HD...</p>;
 
     return (
         <div className="sounds-page-container">
 
             <div className="filter-tabs">
                 <button
-                    className={filter === 'sequence' ? 'active' : ''}
-                    onClick={() => setFilter('sequence')}
-                >
-                    SECUENCIAS
-                </button>
-                <button
                     className={filter === 'preset' ? 'active' : ''}
                     onClick={() => setFilter('preset')}
                 >
-                    PRESETS
-                </button>
-                <button
-                    className={filter === 'preset_pack' ? 'active' : ''}
-                    onClick={() => setFilter('preset_pack')}
-                >
-                    PRESETS PACK
-                </button>
-                <button
-                    className={filter === 'sound_pack' ? 'active' : ''}
-                    onClick={() => setFilter('sound_pack')}
-                >
-                    SOUND PACK
+                    PRESETS GRATIS
                 </button>
                 <button
                     className={filter === 'chart' ? 'active' : ''}
@@ -87,22 +70,28 @@ const Sounds = () => {
                 >
                     CHARTS (PDF)
                 </button>
+                <button
+                    className={filter === 'sound_pack' ? 'active' : ''}
+                    onClick={() => setFilter('sound_pack')}
+                >
+                    PACKS GRATUITOS
+                </button>
             </div>
 
             <div className="product-grid">
-                {filteredProducts.length > 0 ? (
-                    filteredProducts.map(product => (
+                {filteredResources.length > 0 ? (
+                    filteredResources.map(product => (
                         <div key={product.id} className="product-card">
 
-                            {/* ETIQUETA DE OFERTA */}
+                            {/* ETIQUETA DE OFERTA (Por si algún día pones oferta en algo de 0, aunque sea raro) */}
                             {Number(product.on_sale) === 1 && (
-                                <div className="badge-sale">OFERTA</div>
+                                <div className="badge-sale">NUEVO</div>
                             )}
 
                             <div className="card-image">
                                 <img src={`${STORAGE_URL}${product.cover_image}`} alt={product.name} />
 
-                                {/* BOTÓN DE PLAY (DEMO) */}
+                                {/* BOTÓN DE PLAY (DEMO) USANDO EMOJIS */}
                                 {product.demo_audio_url && (
                                     <button
                                         className={`play-btn-overlay ${playingId === product.id ? 'is-playing' : ''}`}
@@ -118,24 +107,24 @@ const Sounds = () => {
                                 <h2 className='category-type'>{product.category_type}</h2>
 
                                 <div className="price-container">
-                                    {Number(product.on_sale) === 1 && product.original_price > 0 && (
-                                        <span className="original-price">${product.original_price}</span>
-                                    )}
-                                    <p className="price">${product.price}</p>
+                                    <p className="price" style={{ color: '#007bff' }}>FREE</p>
                                 </div>
                             </div>
 
+                            {/* Link al detalle del recurso */}
                             <Link to={`/product/${product.slug}`} className="btn-detail-link">
-                                <button className="btn-detail">Ver detalle</button>
+                                <button className="btn-detail" style={{ background: '#28a745' }}>
+                                    Obtener gratis
+                                </button>
                             </Link>
                         </div>
                     ))
                 ) : (
-                    <p className="no-products">No hay {filter} disponibles todavía.</p>
+                    <p className="no-products">No hay {filter} gratuitos disponibles todavía.</p>
                 )}
             </div>
         </div>
     );
 };
 
-export default Sounds;
+export default Resources;

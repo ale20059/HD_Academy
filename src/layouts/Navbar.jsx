@@ -9,11 +9,10 @@ const Navbar = () => {
 
     const menuItems = [
         { path: "/", label: "Inicio" },
-        { path: "/biography", label: "Biografía" },
-        { path: "/sounds", label: "HD Sounds" },
-        { path: "/academy", label: "HD Academy"},
-        { path: "/shop", label: "Tienda" },
+        { path: "/sounds", label: "Sounds" },
+        { path: "/academy", label: "Academy" },
         { path: "/resources", label: "Recursos" },
+        { path: "/biography", label: "Biografía" },
         { path: "/donations", label: "Donaciones" },
         { path: "/contact", label: "Contacto" }
     ];

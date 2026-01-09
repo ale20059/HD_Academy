@@ -74,7 +74,7 @@ html,
 .content-section {
   position: relative;
   z-index: 1;
-  background-color: #1a1a1a;
+  background-color: #121212;
   /* Un gris oscuro se vería pro con tu imagen */
   color: white;
   padding: 50px;

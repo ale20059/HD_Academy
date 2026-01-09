@@ -7,6 +7,8 @@ import Navbar from "./layouts/Navbar";
 import Biography from "./pages/Biography";
 import Sounds from "./pages/Sounds";
 import Footer from "./layouts/Footer";
+import ProductDetail from './pages/ProductDetail';
+import Resources from './pages/Resources';
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
 
         <main className="main-content"> {/* <--- Este empuja al footer */}
           <Routes>
-            <Route path="/" element={<Welcome />} />
-            <Route path="/biography" element={<Biography />} />
-            <Route path="/sounds" element={<Sounds />} />
+            <Route path='/' element={<Welcome />} />
+            <Route path='/biography' element={<Biography />} />
+            <Route path='/sounds' element={<Sounds />} />
+            <Route path='/product/:slug' element={<ProductDetail />} />
+            <Route path='/resources' element={<Resources />} />
           </Routes>
         </main>
 

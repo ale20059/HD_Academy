@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import { useState } from 'react';
 import './App.css';
 import Welcome from "./pages/Welcome";
 import Navbar from "./layouts/Navbar";
@@ -9,6 +8,8 @@ import Sounds from "./pages/Sounds";
 import Footer from "./layouts/Footer";
 import ProductDetail from './pages/ProductDetail';
 import Resources from './pages/Resources';
+import InfoCont from './pages/InfoCont';
+import Donate from './pages/Donate';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
             <Route path='/sounds' element={<Sounds />} />
             <Route path='/product/:slug' element={<ProductDetail />} />
             <Route path='/resources' element={<Resources />} />
+            <Route path='/contact' element={<InfoCont />} />
+            <Route path='/donations' element={<Donate />} />
           </Routes>
         </main>
 

@@ -68,13 +68,21 @@ const Resources = () => {
                     className={filter === 'chart' ? 'active' : ''}
                     onClick={() => setFilter('chart')}
                 >
-                    CHARTS (PDF)
+                    CHARTS (PDF) GRATIS
                 </button>
+
                 <button
                     className={filter === 'sound_pack' ? 'active' : ''}
                     onClick={() => setFilter('sound_pack')}
                 >
-                    PACKS GRATUITOS
+                    SOUND PACK
+                </button>
+
+                <button
+                    className={filter === 'preset_pack' ? 'active' : ''}
+                    onClick={() => setFilter('preset_pack')}
+                >
+                    PRESETS PACK
                 </button>
             </div>
 

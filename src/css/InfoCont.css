@@ -1,0 +1,80 @@
+.contacto-section {
+    background-color: transparent;
+    color: white;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contacto-container {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contacto-info {
+    background: #070707;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.contacto-info h2 {
+    color: #b8b8b8;
+    margin-bottom: 10px;
+}
+
+.contacto-info p {
+    margin: 0 0 0 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+form {
+    background: #070707;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.input-group input,
+textarea {
+    width: 100%;
+    font-size: 15px;
+    background: #111;
+    border: 1px solid #333;
+    padding: 15px;
+    color: #999;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-group:focus {
+    border-color: #ff0000;
+}
+
+.btn-enviar {
+    background-color: white;
+    color: black;
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #ff0000;
+    border-color: #770000;
+    color: white;
+}
+
+@media (max-width: 725px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contacto-section {
+        padding: 80px 20px;
+    }
+}

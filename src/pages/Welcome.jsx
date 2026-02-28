@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -10,6 +9,7 @@ import imagen1 from "../assets/images/image.png";
 
 function Welcome() {
   return (
+
     <div className="container">
       <section className="hero-section">
         <div className="hero-content">
@@ -28,7 +28,7 @@ function Welcome() {
             <img src={guitarra} alt="" />
           </div>
           <p>Donde las ideas <br /> se convierten en sonido profesional.</p>
-          <Link className="btn-academy" to="/sounds">escuchar</Link>
+          { /* <Link className="btn-academy" to="/sounds">escuchar</Link> */}
         </div>
 
         <div className="studio-grabacion">
@@ -37,7 +37,7 @@ function Welcome() {
             <img src={imagen1} alt="" />
           </div>
           <p>Donde el talento <br />se entrena y el sonido evoluciona.</p>
-          <Link className="btn-academy" to="/academy">inscribirme</Link>
+          { /* <Link className="btn-academy" to="/academy">inscribirme</Link> */}
         </div>
 
       </section>

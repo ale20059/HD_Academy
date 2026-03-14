@@ -78,3 +78,26 @@ textarea {
         padding: 80px 20px;
     }
 }
+
+
+.status-msg {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.status-msg.success {
+    background: #28a745;
+    color: white;
+}
+
+.status-msg.error {
+    background: #dc3545;
+    color: white;
+}
+
+.status-msg.info {
+    background: #17a2b8;
+    color: white;
+}

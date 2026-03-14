@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api, {STORAGE_URL} from '../services/api';
+import api, { STORAGE_URL } from '../services/api';
 import '../css/Biography.css';
 
 const Biography = () => {
@@ -7,7 +7,7 @@ const Biography = () => {
     const [loading, setLoading] = useState(true);
 
     // URL para las imágenes que vienen de Laravel Storage
-    const IMAGE_BASE_URL = `${STORAGE_URL}/foto_user/`;
+    const IMAGE_BASE_URL = `${STORAGE_URL}`;
 
     useEffect(() => {
         const getBiography = async () => {

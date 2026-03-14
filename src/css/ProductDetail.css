@@ -4,7 +4,8 @@
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
-    background-color: #000000; /* Fondo negro profundo */
+    background-color: #000000;
+    /* Fondo negro profundo */
     color: #ffffff;
 }
 
@@ -32,7 +33,8 @@
 }
 
 .detail-info .category-tag {
-    color: #007bff; /* Azul HD */
+    color: #007bff;
+    /* Azul HD */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 0.9rem;
@@ -42,14 +44,16 @@
 
 .detail-info .description {
     font-size: 1.1rem;
-    color: #a0a0a0; /* Gris suave para lectura */
+    color: #a0a0a0;
+    /* Gris suave para lectura */
     line-height: 1.7;
     margin-bottom: 2.5rem;
 }
 
 /* Caja de Precio Estilo Dark Card */
 .detail-price-box {
-    background: #1e1e1e; /* Gris muy oscuro */
+    background: #1e1e1e;
+    /* Gris muy oscuro */
     padding: 2rem;
     border-radius: 15px;
     border: 1px solid #333;
@@ -61,7 +65,8 @@
 
 .current-price {
     font-size: 2.5rem;
-    color: #4bb543; /* Verde éxito */
+    color: #4bb543;
+    /* Verde éxito */
     font-weight: bold;
 }
 
@@ -95,8 +100,9 @@
 .filter-tabs {
     display: flex;
     justify-content: center;
-    gap: 0; /* Pegados para que parezca una sola barra */
-    padding-top: 9rem; 
+    gap: 0;
+    /* Pegados para que parezca una sola barra */
+    padding-top: 9rem;
     margin-bottom: 2rem;
     background-color: #121212;
 }
@@ -111,4 +117,42 @@
     letter-spacing: 1px;
     transition: 0.3s;
     font-size: 0.9rem;
+}
+
+
+/* Contenedor del Toast */
+.custom-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    /* Por encima de todo */
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* El cuadro del mensaje */
+.toast-content {
+    background: #28a745;
+    /* Color verde éxito */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Animación de entrada */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

@@ -6,6 +6,8 @@ import '../css/ProductDetail.css';
 const ProductDetail = () => {
     const { slug } = useParams();
     const [product, setProduct] = useState(null);
+    // Estado para mostrar el mensaje de éxito
+    const [showToast, setShowToast] = useState(false);
 
     useEffect(() => {
         const fetchDetail = async () => {
@@ -19,25 +21,54 @@ const ProductDetail = () => {
         fetchDetail();
     }, [slug]);
 
-    const hendleBuyClick = () => {
-        // Si es gratis, abrimos el link de descarga, si no, el de pago
-        const targetUrl = product.is_free ? product.download_path : product.payment_url;
+    const handleDownload = () => {
+        // 1. Crear la URL de descarga de tu API de Laravel
+        const downloadUrl = `${api.defaults.baseURL}/v1/products/${product.id}/download`;
 
-        if (targetUrl) {
-            window.open(targetUrl, '_blank');
+        // 2. Crear un link invisible para forzar la descarga sin salir de la página
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', ''); // Esto indica que es una descarga
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // 3. Mostrar el mensaje personalizado
+        setShowToast(true);
+
+        // 4. Ocultar el mensaje después de 3 segundos
+        setTimeout(() => {
+            setShowToast(false);
+        }, 3000);
+    };
+
+    const handleBuyClick = () => {
+        if (product.is_free) {
+            handleDownload();
         } else {
-            alert(product.is_free
-                ? "Lo sentimos, no hay un link de descarga disponible."
-                : "Lo sentimos, este producto no tiene un link de compra activo.");
+            if (product.payment_url) {
+                window.open(product.payment_url, '_blank');
+            } else {
+                alert("Lo sentimos, este producto no tiene un link de compra activo.");
+            }
         }
-    }
+    };
 
     if (!product) return <div style={{ padding: '10rem', color: 'white' }}>Cargando...</div>;
 
     return (
         <div className="product-detail-container">
-            <div className="detail-grid">
 
+            {/* --- MENSAJE PERSONALIZADO (TOAST) --- */}
+            {showToast && (
+                <div className="custom-toast">
+                    <div className="toast-content">
+                        ✅ ¡Archivo descargado correctamente!
+                    </div>
+                </div>
+            )}
+
+            <div className="detail-grid">
                 <div className="detail-image-wrapper">
                     <img
                         src={`${STORAGE_URL}${product.cover_image}`}
@@ -51,25 +82,21 @@ const ProductDetail = () => {
                     <p className="description">{product.description}</p>
 
                     <div className="detail-price-box">
-                        {/* Si NO es gratis, muestra precios normales */}
                         {!product.is_free ? (
                             <>
                                 {Number(product.on_sale) === 1 && (
                                     <span className="old-price">${product.original_price}</span>
                                 )}
                                 <span className="current-price">${product.price}</span>
-
-                                <button onClick={hendleBuyClick} className="btn-buy-now">
+                                <button onClick={handleBuyClick} className="btn-buy-now">
                                     Comprar ahora
                                 </button>
                             </>
                         ) : (
-                            /* Si ES gratis, muestra texto FREE y botón de descarga */
                             <>
                                 <span className="current-price" style={{ color: '#007bff' }}>GRATIS</span>
-
                                 <button
-                                    onClick={hendleBuyClick}
+                                    onClick={handleBuyClick}
                                     className="btn-buy-now"
                                     style={{ background: '#28a745' }}
                                 >
@@ -79,7 +106,6 @@ const ProductDetail = () => {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
     );

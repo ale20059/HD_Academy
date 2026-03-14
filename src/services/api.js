@@ -12,4 +12,5 @@ const api = axios.create({
 
 export const STORAGE_URL = `${BASE_URL}/storage/`;
 
+
 export default api;
